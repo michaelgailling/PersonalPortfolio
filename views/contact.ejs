@@ -1,0 +1,41 @@
+<!--contact.ejs-->
+
+<% include partials/header.ejs %>
+<% include partials/main_nav.ejs %>
+
+
+
+<!--Main Content Section-->
+<main class="container">
+  <div class="jumbotron">
+    <div class="row">
+        <h1>Conact Me</h1>
+    </div>
+    <div class="row">
+        <p>
+            Please get in touch if you need additional details on one of my projects or require my services.
+        </p>
+    </div>
+    <div class="row"></div>
+        <form>
+            <div class="form-group">
+                <label for="subjectInput">Subject: </label>
+                <input required class="form-control" type="text" id="subjectInput" placeholder="">
+            </div>
+            
+            <div class="form-group">
+                <label for="emailInput">Email:</label>
+                <input required type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="textAreaComments">Comments: </label>
+                <textarea required class="form-control" id="textAreaComments" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+  </div>
+</main>
+
+<% include partials/bottom_nav.ejs %>
+<% include partials/footer.ejs %>
