@@ -1,4 +1,9 @@
 /*CSS goes here*/
 body{
     background-color: #03256c;/*Royal Blue*/
+    color: white;
+}
+
+.foregroundColor{
+    background-color: #2541b2;
 }
