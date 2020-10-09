@@ -1,4 +1,9 @@
-//IIFE
+/*\
+File name:
+Student name: Michael Gailling
+Student ID: 822886651
+Date: October 7, 2020
+\*/
 
 (function(){
     function Start()

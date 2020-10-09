@@ -1,9 +1,25 @@
+/*\
+File name:
+Student name: Michael Gailling
+Student ID: 822886651
+Date: October 7, 2020
+\*/
+
+
 /*CSS goes here*/
 body{
-    background-color: #03256c;/*Royal Blue*/
+    background-color: #2541b2;
     color: white;
 }
 
 .foregroundColor{
     background-color: #2541b2;
+}
+
+a.foregroundLink:link{
+    color:white;
+}
+
+a.foregroundLink:visited{
+    color:white;
 }
