@@ -3,56 +3,61 @@
 
 <!--Main Content Section-->
 <main class="container">
-  <div class="jumbotron foregroundColor">
-    <div id="carouselControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            
-            <div class="carousel-item active">
-                <div class="d-flex justify-content-center w-100">
-                    <div class="col-1"></div>
-                    <div class="col" style="max-width: 100%;">
-                        <img src="Assets/images/projectsPokeball.jpg"  alt="3D printed pokeball" style="max-width: 20vw;">
+    &nbsp;
+    <div class="card bg-dark">
+        <h5 class="card-header">Projects</h5>
+        <div class="card-body">
+            <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center w-100">
+                            <div class="col-1"></div>
+                            <div class="col" style="max-width: 100%;">
+                                <img src="Assets/images/projectsPokeball.jpg"  alt="3D printed pokeball" style="max-width: 20vw;">
+                            </div>
+                            <div class="col">
+                                    <h3>3D Printed Pokeball</h3>
+                                    <p>
+                                        A 3D printed pokeball created on commision for cosplay purposes. 
+                                        It was designed in open scad and printed in red, white, and black ABS plastic.
+                                    </p>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
                     </div>
-                    <div class="col">
-                            <h3>3D Printed Pokeball</h3>
-                            <p>
-                                A 3D printed pokeball created on commision for cosplay purposes. 
-                                It was designed in open scad and printed in red, white, and black ABS plastic.
-                            </p>
+        
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center w-100">
+                            <div class="col-1"></div>
+                            <div class="col">
+                                <img src="Assets/images/projectsTurboTriangle.png"  alt="Turbo Triangle" style="max-width: 20vw;">
+                            </div>
+                            <div class="col">
+                                    <h3>Turbo Triangle</h3>
+                                    <p>
+                                        Turbo Triangle was a simple wire frame 3D rendering. 
+                                        Written in js before classes were introduced it is unlikely I will recycle the code. 
+                                        The phaser.js game library was used to project the graphics.
+                                    </p>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>    
                     </div>
-                    <div class="col-1"></div>
+        
                 </div>
+                <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-
-            <div class="carousel-item">
-                <div class="d-flex justify-content-center w-100">
-                    <div class="col-1"></div>
-                    <div class="col">
-                        <img src="Assets/images/projectsTurboTriangle.png"  alt="Turbo Triangle" style="max-width: 20vw;">
-                    </div>
-                    <div class="col">
-                            <h3>Turbo Triangle</h3>
-                            <p>
-                                Turbo Triangle was a simple wire frame 3D rendering. 
-                                Written in js before classes were introduced it is unlikely I will recycle the code. 
-                                The phaser.js game library was used to project the graphics.
-                            </p>
-                    </div>
-                    <div class="col-1"></div>
-                </div>    
-            </div>
-
         </div>
-        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        </div>
-  </div>
+    </div>
+    
+
 </main>
 
 <% include partials/bottom_nav.ejs %>

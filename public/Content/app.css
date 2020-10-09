@@ -7,19 +7,20 @@ Date: October 7, 2020
 
 
 /*CSS goes here*/
+
+/*Main body style*/
 body{
     background-color: #2541b2;
     color: white;
 }
 
-.foregroundColor{
-    background-color: #2541b2;
-}
-
+/*Main body link style*/
 a.foregroundLink:link{
+    text-decoration: underline;
     color:white;
 }
 
 a.foregroundLink:visited{
+    text-decoration: underline;
     color:white;
 }

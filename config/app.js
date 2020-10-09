@@ -1,3 +1,11 @@
+/*\
+File name:config/app.js
+Student name: Michael Gailling
+Student ID: 822886651
+Date: October 7, 2020
+\*/
+
+
 //3rd Party Packages
 let createError = require('http-errors');
 let express = require('express');
@@ -21,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../node_modules')));
 
+//Main route definitons
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
