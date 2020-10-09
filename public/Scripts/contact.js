@@ -17,6 +17,7 @@ Date: October 7, 2020
         alert("Subject: " + subject + "\nEmail: " + email + " \nComments: " + comments);
     }
     
+    //Add event listener for contact form submission
     let form = document.getElementById("contactForm");
     form.addEventListener("submit", simulateContact);
 
