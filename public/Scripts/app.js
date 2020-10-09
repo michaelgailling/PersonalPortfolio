@@ -10,7 +10,7 @@ Date: October 7, 2020
     {
         console.log("APP STARTED...");
     }
-    
+
     window.addEventListener("load", Start);
 
 })()
