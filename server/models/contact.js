@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-let Contact = mongoose.Schema
+let contactModel = mongoose.Schema
 (
     {
         name:
@@ -22,7 +22,7 @@ let Contact = mongoose.Schema
             type: String,
             default:"",
             trim: true,
-            required: "Display name is required..."
+            required: "Phone number is required..."
         },
         created:
         {
@@ -38,4 +38,6 @@ let Contact = mongoose.Schema
     {
         collection : 'contacts'
     }
-)
+);
+
+module.exports = mongoose.model('Contact', contactModel);
