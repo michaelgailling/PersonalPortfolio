@@ -3,7 +3,43 @@
 
 <!--Main Content Section-->
 <main class="container">
-    
+    <h1><%= title %></h1>
+    <form class="form" method="POST">
+        <div class="form-group">
+            <label for="nameInput">Contact Name: </label>
+            <input type="text" class="form-control"
+            id="nameInput"
+            placeholder="Name Goes Here"
+            name="name"
+            autocomplete="off"
+            required
+            value="<%= contact.name %>">
+        </div>
+        <div class="form-group">
+            <label for="emailInput">Contact Email: </label>
+            <input type="text" class="form-control"
+            id="emailInput"
+            placeholder="Email Goes Here"
+            name="email"
+            autocomplete="off"
+            required
+            value="<%= contact.email %>">
+        </div>
+        <div class="form-group">
+            <label for="phoneInput">Contact Phone #: </label>
+            <input type="text" class="form-control"
+            id="phoneInput"
+            placeholder="Phone # Goes Here"
+            name="phone"
+            autocomplete="off"
+            required
+            value="<%= contact.phone %>">
+        </div>
+        <button class="btn btn-primary" type="submit">
+            Edit Contact
+        </button>
+        <a href="/contact-list" class="btn btn-warning">Cancel</a>
+    </form>
 </main>
 
 <% include ../partials/bottom_nav.ejs %>
