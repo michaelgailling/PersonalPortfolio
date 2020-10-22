@@ -2,11 +2,21 @@ let express = require('express');
 let router = express.Router();
 
 let mongoose = require('mongoose');
+let passport = require('passport');
 
-//User model
+
+
+//Models
 let Contact = require('../models/contact');
 
+
 module.exports.displayContactList = (req, res, next)=> {
+    console.log('contact list proced');
+    if(!req.user)
+    {
+        req.flash('loginMessage', "Unauthorized Access, Please log in!");
+        return res.redirect('/login');
+    }
     Contact.find((err, contactList) => {
         if(err)
         {
@@ -17,14 +27,20 @@ module.exports.displayContactList = (req, res, next)=> {
             //console.log(contactList);
 
             res.render('contact/list',{title: 'Contact List', ContactList: contactList,
-            displayName : req.User ? req.user.displayName : ''});
+            displayName : req.user ? req.user.displayName : ''});
         }
     });
+
 }
 
 module.exports.displayAddContact = (req,res,next) => {
+    if(!req.user)
+    {
+        req.flash('loginMessage', "Unauthorized Access, Please log in!");
+        return res.redirect('/login');
+    }
     res.render('contact/add', {title: 'Add Contact',
-    displayName : req.User ? req.user.displayName : ''});
+    displayName : req.user ? req.user.displayName : ''});
 };
 
 module.exports.addContact = (req,res,next) => {
@@ -48,6 +64,12 @@ module.exports.addContact = (req,res,next) => {
 };
 
 module.exports.displayEditContact = (req,res,next) => {
+    if(!req.user)
+    {
+        req.flash('loginMessage', "Unauthorized Access, Please log in!");
+        return res.redirect('/login');
+    }
+
     let id = req.params.id;
 
     Contact.findById(id, (err, currentContact) => {
@@ -59,7 +81,7 @@ module.exports.displayEditContact = (req,res,next) => {
         else
         {
             res.render('contact/edit', {title: "Edit Contact", contact: currentContact,
-            displayName : req.User ? req.user.displayName : ''});
+            displayName : req.user ? req.user.displayName : ''});
         }
     });
 };
@@ -88,6 +110,12 @@ module.exports.editContact = (req,res, next) => {
 }
 
 module.exports.deleteContact = (req,res, next) => {
+    if(!req.user)
+    {
+        req.flash('loginMessage', "Unauthorized Access, Please log in!");
+        return res.redirect('/login');
+    }
+
     let id = req.params.id;
 
     Contact.remove({_id:id}, (err)=>{

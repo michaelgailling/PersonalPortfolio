@@ -4,10 +4,10 @@
 <!--Main Content Section-->
 <main class="container">
     <!--Message Area-->
-    <%if(message.length > 0) { %>
-    <div class="alert alert-danger">
-        <% messages %>
-    </div>
+    <% if(messages.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= messages %>
+        </div>
     <% } %>
     <div class="row">
         <div class="offset-md-4 col-md-4">
@@ -30,7 +30,7 @@
                     <input type="password" 
                             class="form-control" 
                             name="password" 
-                            placeholder="Enter Username" 
+                            placeholder="Enter Password" 
                             id="password" 
                             required>
                 </fieldset>

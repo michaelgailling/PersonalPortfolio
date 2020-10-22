@@ -1,6 +1,9 @@
 let mongoose = require('mongoose');
 
-let contactModel = mongoose.Schema
+let Schema = mongoose.Schema;
+let Model = mongoose.model;
+
+let contactModel = Schema
 (
     {
         name:
@@ -40,4 +43,4 @@ let contactModel = mongoose.Schema
     }
 );
 
-module.exports = mongoose.model('Contact', contactModel);
+module.exports = Model('Contact', contactModel);

@@ -1,5 +1,6 @@
 let express = require('express');
-let router = express.router;
+let router = express.Router;
+
 let mongoose = require('mongoose');
 let passport = require('passport');
 
@@ -8,39 +9,39 @@ let User = userModel.User;
 
 module.exports.displayHomePage = (req,res,next) => {
     res.render('home/index', { title: 'Home',
-    displayName : req.User ? req.user.displayName : '' });
+    displayName : req.user ? req.user.displayName : '' });
 }
 
 module.exports.displayAboutPage = (req,res,next) => {
     res.render('home/about', { title: 'About',
-    displayName : req.User ? req.user.displayName : '' });
+    displayName : req.user ? req.user.displayName : '' });
 }
 
 module.exports.displayProjectsPage = (req,res,next) => {
     res.render('home/projects', { title: 'Projects',
-    displayName : req.User ? req.user.displayName : '' });
+    displayName : req.user ? req.user.displayName : '' });
 }
 
 module.exports.displayServicesPage = (req,res,next) => {
     res.render('home/services', { title: 'Services',
-    displayName : req.User ? req.user.displayName : '' });
+    displayName : req.user ? req.user.displayName : '' });
 }
 
 module.exports.displayContactPage = (req,res,next) => {
     res.render('home/contact', { title: 'Contact',
-    displayName : req.User ? req.user.displayName : '' });
+    displayName : req.user ? req.user.displayName : '' });
 }
 
 module.exports.displayLoginPage = (req,res,next) => {
-    if(!req.User)
+    if(!req.user)
     {
         res.render('auth/login', {
             title: 'Login',
-            message: req.flash('loginMessage'),
-            displayName : req.User ? req.user.displayName : ''
+            messages: req.flash('loginMessage'),
+            displayName : req.user ? req.user.displayName : ''
         });
     }
-    return res.redirect('/');
+    return res.redirect('/contact-list');
 }
 
 module.exports.procLoginPage = (req,res,next) => {
@@ -69,20 +70,18 @@ module.exports.procLoginPage = (req,res,next) => {
 }
 
 module.exports.displayRegisterPage = (req,res,next) => {
-    if(!req.User)
+    if(!req.user)
     {
         res.render('auth/register', {
             title: 'Register',
-            message: req.flash('loginMessage'),
-            displayName : req.User ? req.user.displayName : ''
+            messages: req.flash('loginMessage'),
+            displayName : req.user ? req.user.displayName : ''
         });
     }
     return res.redirect('/');
 }
 
 module.exports.procRegisterPage = (req,res,next) => {
-    
-
     let newUser = new User({
         username: req.body.username,
         email: req.body.email,
