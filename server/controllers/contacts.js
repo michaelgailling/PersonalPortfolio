@@ -16,13 +16,15 @@ module.exports.displayContactList = (req, res, next)=> {
         {
             //console.log(contactList);
 
-            res.render('contact/list',{title: 'Contact List', ContactList: contactList});
+            res.render('contact/list',{title: 'Contact List', ContactList: contactList,
+            displayName : req.User ? req.user.displayName : ''});
         }
     });
 }
 
 module.exports.displayAddContact = (req,res,next) => {
-    res.render('contact/add', {title: 'Add Contact'});
+    res.render('contact/add', {title: 'Add Contact',
+    displayName : req.User ? req.user.displayName : ''});
 };
 
 module.exports.addContact = (req,res,next) => {
@@ -56,7 +58,8 @@ module.exports.displayEditContact = (req,res,next) => {
         }
         else
         {
-            res.render('contact/edit', {title: "Edit Contact", contact: currentContact});
+            res.render('contact/edit', {title: "Edit Contact", contact: currentContact,
+            displayName : req.User ? req.user.displayName : ''});
         }
     });
 };

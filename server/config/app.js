@@ -17,8 +17,18 @@ let logger = require('morgan');
 let session = require('express-session');
 let passport = require('passport');
 let passportLocal = require('passport-local');
+
+//Auth objects
 let localStrategy = passportLocal.Strategy;
+
+// module for auth messaging
 let flash = require('connect-flash');
+
+//Routers
+let indexRouter = require('../routes/index');
+let contactsRouter = require('../routes/contacts');
+
+let app = express();
 
 //DB setup
 let mongoose = require('mongoose');
@@ -33,11 +43,9 @@ mongoDB.once('open', ()=>{
   console.log("Connected to mongoDB!");
 });
 
-//Routers
-let indexRouter = require('../routes/index');
-let contactsRouter = require('../routes/contacts');
-
-let app = express();
+//user model instance
+let userModel = require('../models/user');
+let User = userModel.User;
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
@@ -51,8 +59,10 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 //setup express session
+let Auth = require('./auth');
+
 app.use(session({
-  secret: "SomeSecret",
+  secret: Auth.Secret,
   saveUninitialized: false,
   resave: false
 }));
@@ -64,11 +74,8 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-//passport user config
-
-//user model instance
-let userModel = require('../models/user');
-let User = userModel.User;
+//implement auth strategy
+passport.use(User.createStrategy());
 
 //Serialize/Deserialize User info
 passport.serializeUser(User.serializeUser());
