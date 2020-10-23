@@ -9,7 +9,7 @@ let passport = require('passport');
 //Models
 let Contact = require('../models/contact');
 
-
+//Display Contact List
 module.exports.displayContactList = (req, res, next)=> {
     console.log('contact list proced');
     if(!req.user)
@@ -25,7 +25,12 @@ module.exports.displayContactList = (req, res, next)=> {
         else
         {
             //console.log(contactList);
-
+            contactList = contactList.sort( function( a, b ) {
+                a = a.name.toLowerCase();
+                b = b.name.toLowerCase();
+            
+                return a < b ? -1 : a > b ? 1 : 0;
+            });
             res.render('contact/list',{title: 'Contact List', ContactList: contactList,
             displayName : req.user ? req.user.displayName : ''});
         }
@@ -33,6 +38,7 @@ module.exports.displayContactList = (req, res, next)=> {
 
 }
 
+//Display add contact page
 module.exports.displayAddContact = (req,res,next) => {
     if(!req.user)
     {
@@ -43,6 +49,7 @@ module.exports.displayAddContact = (req,res,next) => {
     displayName : req.user ? req.user.displayName : ''});
 };
 
+//Process add contact request
 module.exports.addContact = (req,res,next) => {
     let newContact = Contact({
         "name": req.body.name,
@@ -63,6 +70,7 @@ module.exports.addContact = (req,res,next) => {
     });
 };
 
+//Display edit contact page
 module.exports.displayEditContact = (req,res,next) => {
     if(!req.user)
     {
@@ -86,6 +94,7 @@ module.exports.displayEditContact = (req,res,next) => {
     });
 };
 
+//Process edit contact request
 module.exports.editContact = (req,res, next) => {
     let id = req.params.id;
 
@@ -109,6 +118,7 @@ module.exports.editContact = (req,res, next) => {
     });
 }
 
+//Process delete contact request
 module.exports.deleteContact = (req,res, next) => {
     if(!req.user)
     {
