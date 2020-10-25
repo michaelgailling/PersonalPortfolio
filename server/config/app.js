@@ -2,7 +2,7 @@
 File name:config/app.js
 Student name: Michael Gailling
 Student ID: 822886651
-Date: October 7, 2020
+Date: October 25, 2020
 \*/
 
 
@@ -21,7 +21,7 @@ let passportLocal = require('passport-local');
 //Auth objects
 let localStrategy = passportLocal.Strategy;
 
-// module for auth messaging
+// Module for messaging
 let flash = require('connect-flash');
 
 //Routers

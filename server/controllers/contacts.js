@@ -24,7 +24,6 @@ module.exports.displayContactList = (req, res, next)=> {
         }
         else
         {
-            //console.log(contactList);
             contactList = contactList.sort( function( a, b ) {
                 a = a.name.toLowerCase();
                 b = b.name.toLowerCase();
