@@ -1,3 +1,10 @@
+/*\
+File name:models/contacts.js
+Student name: Michael Gailling
+Student ID: 822886651
+Date: October 25, 2020
+\*/
+
 let mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
