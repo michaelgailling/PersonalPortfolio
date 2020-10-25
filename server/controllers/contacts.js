@@ -31,11 +31,19 @@ module.exports.displayContactList = (req, res, next)=> {
         }
         else
         {
-            contactList = contactList.sort( function( a, b ) {
-                a = a.name.toLowerCase();
-                b = b.name.toLowerCase();
-            
-                return a < b ? -1 : a > b ? 1 : 0;
+            //Sort contact list pass in anonymous sorting fucntion to sort alphabetically
+            contactList = contactList.sort((contactA, contactB) => {
+                //The name value of each contact is force to lower case then stored for comparison
+                let a = contactA.name.toLowerCase();
+                let b = contactB.name.toLowerCase();
+                if(a<b){
+                    //if A value comes before B value in the alpabet reduce its index by 1 in the array
+                    return -1;
+                }
+                else{
+                    //if A value comes after B value in the alpabet increase its index by 1 in the array
+                    return 1;
+                }
             });
             res.render('contact/list',{title: 'Contact List', ContactList: contactList,
             displayName : req.user ? req.user.displayName : ''});
