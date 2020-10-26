@@ -34,16 +34,22 @@ module.exports.displayContactList = (req, res, next)=> {
             //Sort contact list pass in anonymous sorting fucntion to sort alphabetically
             contactList = contactList.sort((contactA, contactB) => {
                 //The name value of each contact is force to lower case then stored for comparison
-                let a = contactA.name.toLowerCase();
-                let b = contactB.name.toLowerCase();
-                if(a<b){
-                    //if A value comes before B value in the alpabet reduce its index by 1 in the array
+                let aName = contactA.name.toLowerCase();
+                let bName = contactB.name.toLowerCase();
+                if(aName<bName)
+                {
+                    //if aName value comes before bName value in the alpabet reduce its index by 1 in the array
                     return -1;
                 }
-                else{
-                    //if A value comes after B value in the alpabet increase its index by 1 in the array
+                
+                if(aName>bName)
+                {
+                    //if aName value comes after bName value in the alpabet increase its index by 1 in the array
                     return 1;
                 }
+                
+                //if aName and bName are equal move nothing 
+                return 0;
             });
             res.render('contact/list',{title: 'Contact List', ContactList: contactList,
             displayName : req.user ? req.user.displayName : ''});
